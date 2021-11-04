@@ -24,6 +24,10 @@ nav{
     align-items: center;
 }
 
+nav #bx{
+    display: none;
+}
+
 nav img{
     width: 150px;
 }
@@ -87,8 +91,6 @@ nav img{
 }
 
 .search-txt{
-    position: absolute;
-    transform: translate(-90%);
     background: #F6F6F6;
     border-radius: 20px;
     padding: 5px;
@@ -96,22 +98,30 @@ nav img{
 
 .search-btn{
     transition: 0.5s;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
 }
 
 .search-btn:hover > .search-txt{
-    width: 270px;
+    width: 280px;
 }
 
 .search-txt{
     border: none;
     outline: none;
-    float: left;
-    padding: 0;
-    width: 0px;
-    height: 40px;
+    padding: 6px;
+    width: 280px;
+    height: 30px;
     font-size: 18px;
+}
+
+.search
+{
+    display: flex;
+    position: relative;
 }
 
 .content1{
@@ -140,7 +150,115 @@ nav img{
     position: relative;
 }
 
-.content2 h1{
+/* Search */
+.hide
+{
+    display: none;
+}
+
+@media(max-width: 700px){
+    /* .layer1{
+        overflow: hidden;
+    } */
+
+    .content1{
+        width: 50%;
+        top: 200px;
+        position: absolute;
+        text-align: center;
+    }
+
+    .content1 h1{
+        font-size: 24px;
+    }
+
+    .content1 p{
+        font-size: 14px;
+    }
+
+    .nav-links ul li{
+        display: block;
+    }
+
+    .nav-links{
+        position: absolute;
+        background: #fff;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        top: 0;
+        right: -100%;
+        z-index: 2;
+        transition: 1s;
+    }
+
+    nav .bx{
+        display: block;
+        color: #000;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    nav #bx{
+        display: block;
+        color: #000;
+        cursor: pointer;
+        text-align: right;
+    }
+    
+    .nav-links ul{
+        padding: 10px;
+    }
+}
+
+/* section 2 */
+
+.layer2{
+    overflow: hidden;
+}
+
+.content2{
+    left: 30px;
+    position: relative;
+    text-align: left;
+    padding: 2% 6%;
+}
+
+.layer2 h1{
     font-size: 48px;
     width: 450px;
+}
+
+.layer2 .arrow{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.layer2 .arrow .bx:hover{
+    transform: scale(1.5);
+    transition: transform .5s ease;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20%;
+}
+
+.img{
+    flex-basis: 31%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+}
+
+.img img{
+    width: 400px;
+    height: 600px;
+    border-radius: 40px;
+}
+
+.img img:hover{
+    transform: scale(1.1);
+    transition: transform .5s ease;
 }

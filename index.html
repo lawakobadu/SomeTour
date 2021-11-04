@@ -22,7 +22,8 @@
     <section class="layer1">
         <nav>
             <a href="#"><img src="/img/LOGO SOMETOUR.PNG"></a>
-            <div class="nav-links">
+            <div class="nav-links" id="navlinks">
+                <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Category<i class='bx bxs-chevron-down'></i></a>
@@ -39,11 +40,14 @@
                     <li><a href="#">Share Your Story</a></li>
                     <li><a href="#">Profile</a></li>
                     <li>
-                        <input type="text" name="" id="" class="search-txt" placeholder="Cari">
-                        <a href="" class="search-btn"><i class='bx bx-search'></i></a>
+                        <div class="search">
+                            <input type="text" name="" id="" class="search-txt hide" placeholder="Cari">
+                            <i class='bx bx-search search-btn'></i>
+                        </div>
                     </li>
                 </ul>
             </div>
+            <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
         </nav>
         <div class="content1">
             <h1>Tour around the West Sumatera
@@ -53,23 +57,33 @@
             <a href="#" class="explore-btn">Explore now</a>
         </div>
     </section>
-
-    <section>
+        <br><br><br><br><br><br>
+    <section class="layer2">
         <div class="content2">
             <h1>Explore place around
-                the West Sumatera</h1>
-            <i class='bx bx-left-arrow-alt bx-md'></i>
-            <i class='bx bx-right-arrow-alt bx-md'></i>
-            <div>
-                <img src="/img/2.jpg" alt="">
-                <img src="/img/3.jpg" alt="">
-                <img src="/img/4.jpg" alt="">
+                the West Sumatera</h1><br><br>
+            <div class="arrow">
+                <i class='bx bx-left-arrow-alt bx-md'></i>
+                <i class='bx bx-right-arrow-alt bx-md'></i>
             </div>
-        </div>
-        
+        </div><br><br>
+            <div class="row">
+                <div class="img">
+                    <img src="/img/2.jpg" alt="">
+                </div>
+                <div class="img">
+                    <img src="/img/3.jpg" alt="">
+                </div>
+                <div class="img">
+                    <img src="/img/4.jpg" alt="">
+                </div>
+                <div class="img">
+                    <img src="/img/5.jpg" alt="">
+                </div>
+            </div>
     </section>
 
-    <section>
+    <!-- <section>
         <div class="content3">
             <h1>What are they said</h1>
         </div>
@@ -87,6 +101,33 @@
             <img src="" alt="">
             <img src="" alt="">
         </div>
-    </section>
+    </section> -->
+
+<script>
+    var navlinks = document.getElementById("navlinks")
+    let input = document.querySelector(".search-txt"),
+        btn = document.querySelector(".search-btn")
+
+    btn.onclick = () =>{
+        input.classList.toggle("hide")
+    }
+
+    function showMenu(){
+        navlinks.style.right = "0";
+    }
+
+    function hideMenu(){
+        navlinks.style.right = "-100%";
+    }
+    
+    var splide = new Splide( '.arrow', {
+  type   : 'loop',
+  perPage: 3,
+  perMove: 1,
+} );
+
+splide.mount();
+</script>
+<script src="/assets/js/splide.min.js"></script>
 </body>
 </html>
