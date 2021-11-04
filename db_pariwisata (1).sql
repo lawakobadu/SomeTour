@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Nov 2021 pada 08.45
+-- Waktu pembuatan: 04 Nov 2021 pada 06.54
 -- Versi server: 10.4.20-MariaDB
 -- Versi PHP: 7.3.29
 
@@ -64,13 +64,13 @@ INSERT INTO `jenis` (`id_jenis`, `jenis_wisata`) VALUES
 
 CREATE TABLE `objek_wisata` (
   `kode_wisata` int(5) NOT NULL,
-  `nama_wisata` varchar(100) NOT NULL,
-  `id_jenis` varchar(50) NOT NULL,
+  `id_user` int(5) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `jenis_wisata` varchar(50) NOT NULL,
   `deskripsi` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
   `alamat` varchar(100) NOT NULL,
-  `jam_operasional` varchar(50) NOT NULL,
-  `harga_tiket` int(20) NOT NULL
+  `jam_operasional` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -105,11 +105,19 @@ CREATE TABLE `saran` (
 
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
-  `nama_user` varchar(100) NOT NULL,
+  `nama` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `level` enum('admin','user') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `level`) VALUES
+(1, 'riza', 'riza@gmail.com', 'd5f275885bd96778f7f01c814e405e7c', 'admin'),
+(2, 'hadef', 'hadef@gmail.com', '9d0d77659a6f4d38e5e6a6649b7f7db7', 'user');
 
 --
 -- Indexes for dumped tables
@@ -159,13 +167,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `objek_wisata`
 --
 ALTER TABLE `objek_wisata`
-  MODIFY `kode_wisata` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `kode_wisata` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
