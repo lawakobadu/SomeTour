@@ -157,9 +157,9 @@ nav img{
 }
 
 @media(max-width: 700px){
-    /* .layer1{
+    .layer1{
         overflow: hidden;
-    } */
+    }
 
     .content1{
         width: 50%;
@@ -238,27 +238,132 @@ nav img{
 .layer2 .arrow .bx:hover{
     transform: scale(1.5);
     transition: transform .5s ease;
+    color: #008DC3;
 }
 
-.row{
+.layer2 .row{
     display: flex;
     justify-content: space-between;
     margin-left: 20%;
 }
 
-.img{
+.layer2 .img{
     flex-basis: 31%;
     padding: 20px 12px;
     box-sizing: border-box;
 }
 
-.img img{
+.layer2 .img img{
     width: 400px;
     height: 600px;
     border-radius: 40px;
 }
 
-.img img:hover{
+.layer2 .img img:hover{
     transform: scale(1.1);
     transition: transform .5s ease;
+    cursor: pointer;
+}
+
+/* Section 3 */
+
+.layer3{
+    overflow: hidden;
+}
+
+.content3{
+    position: relative;
+    text-align: left;
+    padding: 2% 6%;
+}
+
+.layer3 h1{
+    font-size: 48px;
+}
+
+.rectangle1{
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 120px;
+    width: 1150px;
+    height: 650px;
+    background: rgba(1, 166, 101, 0.3);
+}
+
+.rectangle2{
+    position: relative;
+    margin-top: 300px;
+    margin-left: 30px;
+    width: 1150px;
+    height: 650px;
+    background-color: #fff;
+}
+
+/* Section 4 */
+
+.layer4{
+    overflow: hidden;
+}
+
+.layer4 h1{
+    font-size: 48px;
+}
+
+.content4{
+    position: relative;
+    text-align: left;
+    padding: 2% 6%;
+}
+
+.rectangle3{
+    position: absolute;
+    margin-top: 100px;
+    margin-left: -90px;
+    width: 1150px;
+    height: 650px;
+    background: rgba(0, 141, 195, 0.3);
+}
+
+.rectangle4{
+    position: relative;
+    margin-top: 300px;
+    margin-left: 30px;
+    width: 1150px;
+    height: 650px;
+    background-color: #fff;
+}
+
+/* Sectione 5 */
+
+.layer5{
+    overflow: hidden;
+}
+
+.layer5 .row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.layer5 .img{
+    flex-basis: 31%;
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+
+.layer5 .img img{
+    width: 390px;
+    height: 300px;
+    border-radius: 40px;
+}
+
+.layer5 .img img:hover{
+    transform: scale(1.1);
+    transition: transform .5s ease;
+    cursor: pointer;
+}
+
+footer{
+    width: 100%;
+    height: 300px;
+    background-color: #000;
 }
