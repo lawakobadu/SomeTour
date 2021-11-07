@@ -229,13 +229,13 @@ nav img{
     width: 450px;
 }
 
-.layer2 .arrow{
+.arrow{
     display: flex;
     justify-content: flex-end;
     cursor: pointer;
 }
 
-.layer2 .arrow .bx:hover{
+.arrow .bx:hover{
     transform: scale(1.5);
     transition: transform .5s ease;
     color: #008DC3;
@@ -277,8 +277,13 @@ nav img{
     padding: 2% 6%;
 }
 
-.layer3 h1{
+.content3 h1{
     font-size: 48px;
+    width: 400px;
+}
+
+.content3 p{
+    width: 455px;
 }
 
 .rectangle1{
@@ -299,13 +304,38 @@ nav img{
     background-color: #fff;
 }
 
+.rectangle2 .main{
+    display: flex;
+    justify-content: space-between;
+    padding: 3%;
+}
+
+.rectangle2 .bx{
+    margin-top: 100px;
+}
+
+.main img{
+    width: 484px;
+    height: 434px;
+}
+
+.main p{
+    width: 466px;
+    font-size: 18px;
+}
+
 /* Section 4 */
 
 .layer4{
     overflow: hidden;
 }
 
-.layer4 h1{
+.content4{
+    display: flex;
+    justify-content: space-between;
+}
+
+.content4 h1{
     font-size: 48px;
 }
 
