@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- style -->
+    <!-- Style -->
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Icon -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- font -->
+    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -21,10 +21,10 @@
 <body>
 
 <!-- Content Pertama -->
-    <section class="layer1">
+    <section class="layer1" id="layer1">
         <nav>
             <a href="#"><img src="/img/LOGO SOMETOUR.PNG"></a>
-            <div class="nav-links" id="navlinks">
+            <div class="nav-links">
                 <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -39,7 +39,7 @@
                     </li>
                     <li><a href="#">Most Popular</a></li>
                     <li><a href="#">Share Your Story</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="#layer4">Profile</a></li>
                     <li>
                         <div class="search">
                             <input type="text" name="" id="" class="search-txt hide" placeholder="Cari">
@@ -55,17 +55,17 @@
                 with the new destination</h1><br>
             <p>We believe in a travelling experience by providing our tour
                 plan that suits your the best!</p><br><br>
-            <a href="#" class="explore-btn">Explore now</a>
+            <a href="#layer2" class="explore-btn">Explore now</a>
         </div>
     </section>
         <br><br><br><br><br><br>
 
 <!-- Content Kedua -->
-    <section class="layer2">
+    <section class="layer2" id="layer2">
         <div class="content2">
             <h1>Explore place around
                 the West Sumatera</h1><br><br>
-            <div class="arrow">
+            <div class="arrow" id="splide">
                 <i class='bx bx-left-arrow-alt bx-md'></i>
                 <i class='bx bx-right-arrow-alt bx-md'></i>
             </div>
@@ -88,7 +88,7 @@
         <br><br><br><br><br><br>
 
 <!-- Content Ketiga -->
-    <section class="layer3">
+    <section class="layer3" id="layer3">
         <div class="content3">
             <div class="rectangle1"></div>
                 <div class="rectangle2">
@@ -117,7 +117,7 @@
         <br><br><br><br><br><br>
 
 <!-- Content Keempat -->
-    <section class="layer4">
+    <section class="layer4" id="layer4">
         <div class="content4">
             <div class="rectangle3">
                 <div class="main">
@@ -164,7 +164,7 @@
         <br><br><br><br><br><br>
 
 <!-- Content Kelima -->
-    <section class="layer5">
+    <section class="layer5" id="layer5">
         <div class="content5">
             <div class="row">
                 <div class="img">
@@ -217,15 +217,8 @@
     function hideMenu(){
         navlinks.style.right = "-100%";
     }
-    
-    var splide = new Splide( '.arrow', {
-  type   : 'loop',
-  perPage: 3,
-  perMove: 1,
-} );
-
-splide.mount();
 </script>
 <script src="/assets/js/splide.min.js"></script>
+<script src="/assets/js/script.js"></script>
 </body>
 </html>
