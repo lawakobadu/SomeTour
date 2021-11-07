@@ -339,6 +339,16 @@ nav img{
     font-size: 48px;
 }
 
+.content4 p{
+    width: 455px;
+}
+
+.rectangle3 .main{
+    display: flex;
+    justify-content: space-between;
+    padding: 3%;
+}
+
 .content4{
     position: relative;
     text-align: left;
@@ -348,7 +358,7 @@ nav img{
 .rectangle3{
     position: absolute;
     margin-top: 100px;
-    margin-left: -90px;
+    margin-left: -80px;
     width: 1150px;
     height: 650px;
     background: rgba(0, 141, 195, 0.3);
@@ -361,6 +371,30 @@ nav img{
     width: 1150px;
     height: 650px;
     background-color: #fff;
+}
+
+.rectangle4 .img-gallery{
+    width: 84%;
+    margin: 100px auto 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-gap: 30px;
+}
+
+.img .bx{
+    position: absolute;
+    padding: 5px;
+}
+
+.img .bx:hover{
+    cursor: pointer;
+    color: #fff;
+}
+
+.img-gallery img{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
 }
 
 /* Sectione 5 */
