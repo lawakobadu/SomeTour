@@ -1,6 +1,6 @@
 <?php
 include_once("koneksi.php");
-$result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek_wisata WHERE jenis_pariwisata='alam'") or die (mysqli_error($conn));
+$result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek_wisata WHERE jenis_pariwisata='maritim'") or die (mysqli_error($conn));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,9 +33,9 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
                 <li><a href="#">Category<i class='bx bxs-chevron-down'></i></a>
                     <div class="sub-category">
                         <ul>
-                            <li><a href="#">Alam</a></li>
+                            <li><a href="alam.php">Alam</a></li>
                             <li><a href="sejarah.php">Sejarah</a></li>
-                            <li><a href="maritim.php">Maritim</a></li>
+                            <li><a href="#">Maritim</a></li>
                         </ul>
                     </div>
                 </li>
@@ -61,9 +61,8 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
         echo "<tr>";
         echo "<td>
                 <p class='p-sub'>".$judul."</p>
-                <img src='img/alam/".$gambar.".png' class='img-category'>
-            </td>";
-        echo "</tr>";
+                <img src='img/maritim/".$gambar.".png' class='img-category'>
+            </td>"; 
         echo "</div>";   
     }
     ?>

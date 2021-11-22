@@ -36,8 +36,8 @@
                         <div class="sub-category">
                             <ul>
                                 <li><a href="alam.php">Alam</a></li>
-                                <li><a href="sejarah.html">Sejarah</a></li>
-                                <li><a href="maritim.html">Maritim</a></li>
+                                <li><a href="sejarah.php">Sejarah</a></li>
+                                <li><a href="maritim.php">Maritim</a></li>
                             </ul>
                         </div>
                     </li>

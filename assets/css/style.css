@@ -17,7 +17,7 @@ body{
 }
 
 .layer1{
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F6F6F6 100%), url('/img/5.jpg');
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F6F6F6 100%), url('/SomeTour/img/5.jpg');
     background-size: cover;
     width: 100%;
     background-position: center;
@@ -138,6 +138,28 @@ nav img{
     left: 100px;
     position: absolute;
     text-align: left;
+}
+
+.content{
+    position: relative;
+    padding: 2% 6%;
+}
+
+.content p{
+    font-size: 24px;
+}
+
+.img-sub .p-sub{
+    position: absolute;
+    padding: 5px;
+    color: #fff;
+    margin-top: 100px;
+    margin-left: 10px;
+}
+
+.img-category{
+    width: 350px;
+    height: 150px;
 }
 
 .content1 h1{
@@ -317,6 +339,13 @@ nav img{
 .main p{
     width: 466px;
     font-size: 18px;
+}
+
+.arrow .bx:hover{
+    cursor: pointer;
+    transform: scale(1.3);
+    transition: transform .5s ease;
+    color: #008DC3;
 }
 
 /* Section 4 */
