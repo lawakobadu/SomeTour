@@ -226,7 +226,6 @@ nav img{
 }
 
 .content2{
-    left: 30px;
     position: relative;
     text-align: left;
     padding: 2% 6%;
@@ -237,37 +236,25 @@ nav img{
     width: 450px;
 }
 
-.arrow{
-    display: flex;
-    justify-content: flex-end;
-    cursor: pointer;
-}
-
-.arrow .bx:hover{
-    transform: scale(1.5);
-    transition: transform .5s ease;
-    color: #008DC3;
-}
-
-.layer2 .row{
+.layer2 .splide__list{
     display: flex;
     justify-content: space-between;
-    margin-left: 20%;
+    margin-left: 25%;
 }
 
-.layer2 .img{
+.layer2 .splide__slide{
     flex-basis: 31%;
     padding: 20px 12px;
     box-sizing: border-box;
 }
 
-.layer2 .img img{
-    width: 400px;
-    height: 600px;
+.layer2 .splide__slide img{
+    width: 350px;
+    height: 550px;
     border-radius: 40px;
 }
 
-.layer2 .img img:hover{
+.layer2 .splide__slide img:hover{
     transform: scale(1.1);
     transition: transform .5s ease;
     cursor: pointer;

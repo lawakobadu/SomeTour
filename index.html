@@ -7,6 +7,8 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/splide.min.css">
 
     <!-- Icon -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -15,6 +17,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="/assets/js/splide.min.js"></script>
 
     <title>SomeTour</title>
 </head>
@@ -51,11 +55,11 @@
             <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
         </nav>
         <div class="content1">
-            <h1>Tour around the West Sumatera
+            <h1 data-aos="fade-up">Tour around the West Sumatera
                 with the new destination</h1><br>
-            <p>We believe in a travelling experience by providing our tour
+            <p data-aos="fade-up">We believe in a travelling experience by providing our tour
                 plan that suits your the best!</p><br><br>
-            <a href="#layer2" class="explore-btn">Explore now</a>
+            <a href="#layer2" class="explore-btn" data-aos="fade-up">Explore now</a>
         </div>
     </section>
         <br><br><br><br><br><br>
@@ -65,33 +69,28 @@
         <div class="content2">
             <h1>Explore place around
                 the West Sumatera</h1><br><br>
-            <div class="arrow" id="splide">
-                <i class='bx bx-left-arrow-alt bx-md'></i>
-                <i class='bx bx-right-arrow-alt bx-md'></i>
-            </div>
-        </div><br><br>
-            <div class="row">
-                <div class="img">
-                    <img src="/img/2.jpg" alt="">
+        </div>
+            <div class="splide">
+                <div class="splide__track">
+                      <ul class="splide__list">
+                          <li class="splide__slide" data-aos="zoom-in" data-aos-duration="500"><img src="/img/1-slide.jpg" alt=""></li>
+                          <li class="splide__slide" data-aos="zoom-in" data-aos-duration="1000"><img src="/img/2-slide.jpg" alt=""></li>
+                          <li class="splide__slide" data-aos="zoom-in" data-aos-duration="1500"><img src="/img/3-slide.jpg" alt=""></li>
+                          <li class="splide__slide" data-aos="zoom-in" data-aos-duration="2000"><img src="/img/4-slide.jpg" alt=""></li>
+                          <li class="splide__slide" data-aos="zoom-in" data-aos-duration="2500"><img src="/img/5-slide.jpg" alt=""></li>
+                          <li class="splide__slide" data-aos="zoom-in" data-aos-duration="3000"><img src="/img/6-slide.jpg" alt=""></li>
+                          <li class="splide__slide" data-aos="zoom-in" data-aos-duration="3000"><img src="/img/7-slide.jpg" alt=""></li>
+                          <li class="splide__slide" data-aos="zoom-in" data-aos-duration="3000"><img src="/img/8-slide.jpg" alt=""></li>
+                      </ul>
                 </div>
-                <div class="img">
-                    <img src="/img/3.jpg" alt="">
-                </div>
-                <div class="img">
-                    <img src="/img/4.jpg" alt="">
-                </div>
-                <div class="img">
-                    <img src="/img/5.jpg" alt="">
-                </div>
-            </div>
+              </div>
     </section>
-        <br><br><br><br><br><br>
 
 <!-- Content Ketiga -->
     <section class="layer3" id="layer3">
         <div class="content3">
-            <div class="rectangle1"></div>
-                <div class="rectangle2">
+            <div class="rectangle1" data-aos="fade-left" data-aos-duration="500"></div>
+                <div class="rectangle2" data-aos="fade-right" data-aos-duration="1500">
                     <div class="main">
                         <div>
                             <h1>What are they said</h1><br><br><br><br><br>
@@ -114,19 +113,18 @@
             
         </div>
     </section>
-        <br><br><br><br><br><br>
 
 <!-- Content Keempat -->
     <section class="layer4" id="layer4">
         <div class="content4">
-            <div class="rectangle3">
+            <div class="rectangle3" data-aos="fade-right" data-aos-duration="500">
                 <div class="main">
                     <h1>About Us</h1>
                     <p>We believe in a travelling experience by
                         providing tour plan that suits your the best!</p>
                 </div>
             </div>
-                <div class="rectangle4">
+                <div class="rectangle4" data-aos="fade-left" data-aos-duration="1500">
                     <div class="img-gallery">
                         <div class="img">
                             <i class='bx bxl-instagram bx-md'></i>
@@ -161,11 +159,11 @@
             
         </div>
     </section>
-        <br><br><br><br><br><br>
+        <br><br><br>
 
 <!-- Content Kelima -->
     <section class="layer5" id="layer5">
-        <div class="content5">
+        <div class="content5" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
             <div class="row">
                 <div class="img">
                     <img src="/img/6.png" alt="">
@@ -179,7 +177,7 @@
             </div>
         </div>
     </section>
-        <br><br><br><br><br><br>
+        <br><br><br>
 
 <footer>
     <div class="row-1">
@@ -219,7 +217,18 @@
         navlinks.style.right = "-100%";
     }
 </script>
-<script src="/assets/js/splide.min.js"></script>
+<script>
+    var splide = new Splide( '.splide', {
+        padding: '5rem',
+        type: 'loop'
+} );
+
+splide.mount();
+</script>
 <script src="/assets/js/script.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
 </body>
 </html>
