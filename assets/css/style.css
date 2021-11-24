@@ -143,6 +143,10 @@ nav img{
 .content{
     position: relative;
     padding: 2% 6%;
+    display: grid;
+    width: 88%;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 30px;
 }
 
 .content p{

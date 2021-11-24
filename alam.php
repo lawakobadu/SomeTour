@@ -20,7 +20,7 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Maritim</title>
+    <title>Alam</title>
 </head>
 <body>
 <div class="body">
@@ -51,7 +51,7 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
             </ul>
         </div>
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
-    </nav>
+    </nav><br><br><br>
     <div class="content">
     <?php  
     while($data = mysqli_fetch_array($result)) { 
