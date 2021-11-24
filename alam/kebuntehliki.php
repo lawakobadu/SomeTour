@@ -1,6 +1,6 @@
 <?php
 include_once("koneksi.php");
-$result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek_wisata WHERE jenis_pariwisata='alam'") or die (mysqli_error($conn));
+$result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi, gambar FROM objek_wisata") or die (mysqli_error($conn));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Style -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/SomeTour/assets/css/style.css">
 
     <!-- Icon -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -25,7 +25,7 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
 <body>
 <div class="body">
     <nav>
-        <a href="index.php"><img src="img/LOGO SOMETOUR.PNG"></a>
+        <a href="/SomeTour/index.php"><img src="/SomeTour/img/LOGO SOMETOUR.PNG"></a>
         <div class="nav-links">
             <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
             <ul>
@@ -57,19 +57,23 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
     while($data = mysqli_fetch_array($result)) { 
         $gambar = $data['gambar'];
         $judul = $data['judul'];
-        echo "<div class='img-sub'>";
-        echo "<tr>";
-        echo "<td>
-                <a href='alam/'><p class='p-sub'>".$judul."</p>
-                <img src='img/alam/".$gambar.".png' class='img-category'></a>
-            </td>"; 
-        echo "</div>";   
+        $alamat = $data['alamat'];
+        $jam = $data['jam_operasional'];
+        $deskripsi = $data['deskripsi'];
+
+        echo "<h1>".$judul."</h1>";
+        echo "<div class='rectangle-content'>";
+        echo "<p>Lokasi : ".$alamat."</p>";
+        echo "<p>Jam_Operasional : ".$jam."</p>";
+        echo "<p>Deskripsi : <br>".$deskripsi."</p>";
+        echo "<img src='img/alam/".$gambar.".png' class='img-category'>";
+        echo "</div";
     }
     ?>
     </div>
     <a class="prev" onclick="plusSlides(-9)">&#10094;</a>
     <a class="next" onclick="plusSlides(9)">&#10095;</a>
-</div>
+    </div>
 <br><br><br>
     <footer>
         <div class="row-1">
