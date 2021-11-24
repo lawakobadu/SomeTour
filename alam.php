@@ -30,7 +30,7 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
             <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#">Category<i class='bx bxs-chevron-down'></i></a>
+                <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
                     <div class="sub-category">
                         <ul>
                             <li><a href="#">Alam</a></li>
@@ -70,7 +70,6 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
     <a class="prev" onclick="plusSlides(-9)">&#10094;</a>
     <a class="next" onclick="plusSlides(9)">&#10095;</a>
     </div>
-</div>
 <br><br><br>
     <footer>
         <div class="row-1">
