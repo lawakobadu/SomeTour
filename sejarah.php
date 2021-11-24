@@ -51,7 +51,7 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
             </ul>
         </div>
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
-    </nav>
+    </nav><br><br><br>
     <div class="content">
     <?php  
     while($data = mysqli_fetch_array($result)) { 
