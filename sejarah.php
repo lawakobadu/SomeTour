@@ -61,11 +61,18 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
         echo "<tr>";
         echo "<td>
                 <p class='p-sub'>".$judul."</p>
-                <img src='img/sejarah/".$gambar.".png' class='img-category'>
+                <img src='img/sejarah/".$gambar.".jpg' class='img-category'>
             </td>"; 
         echo "</div>";   
     }
     ?>
+    <a class="prev" onclick="plusSlides(-9)">&#10094;</a>
+    <a class="next" onclick="plusSlides(9)">&#10095;</a>
+    </div>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 </div>
 
