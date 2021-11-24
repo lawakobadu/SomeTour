@@ -20,7 +20,7 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Maritim</title>
+    <title>Sejarah</title>
 </head>
 <body>
 <div class="body">
