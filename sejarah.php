@@ -1,6 +1,6 @@
 <?php
 include_once("koneksi.php");
-$result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek_wisata WHERE jenis_pariwisata='sejarah'") or die (mysqli_error($conn));
+$result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisata FROM objek_wisata WHERE jenis_pariwisata='sejarah'") or die (mysqli_error($conn));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Sejarah</title>
+    <title>Alam</title>
 </head>
 <body>
 <div class="body">
@@ -33,8 +33,8 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
                 <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
                     <div class="sub-category">
                         <ul>
-                            <li><a href="alam.php">Alam</a></li>
-                            <li><a href="#">Sejarah</a></li>
+                            <li><a href="#">Alam</a></li>
+                            <li><a href="sejarah.php">Sejarah</a></li>
                             <li><a href="maritim.php">Maritim</a></li>
                         </ul>
                     </div>
@@ -57,11 +57,12 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
     while($data = mysqli_fetch_array($result)) { 
         $gambar = $data['gambar'];
         $judul = $data['judul'];
+        $id = $data['kode_wisata'];
         echo "<div class='img-sub'>";
         echo "<tr>";
         echo "<td>
-                <p class='p-sub'>".$judul."</p>
-                <img src='img/sejarah/".$gambar.".jpg' class='img-category'>
+                <a href='detailsejarah.php?kode_wisata=".$id."'><p class='p-sub'>".$judul."</p>
+                <img src='img/sejarah/".$gambar.".png' class='img-category'></a>
             </td>"; 
         echo "</div>";   
     }

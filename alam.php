@@ -1,6 +1,6 @@
 <?php
 include_once("koneksi.php");
-$result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek_wisata WHERE jenis_pariwisata='alam'") or die (mysqli_error($conn));
+$result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisata FROM objek_wisata WHERE jenis_pariwisata='alam'") or die (mysqli_error($conn));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,10 +57,11 @@ $result = mysqli_query($conn, "SELECT judul, gambar, jenis_pariwisata FROM objek
     while($data = mysqli_fetch_array($result)) { 
         $gambar = $data['gambar'];
         $judul = $data['judul'];
+        $id = $data['kode_wisata'];
         echo "<div class='img-sub'>";
         echo "<tr>";
         echo "<td>
-                <a href='alam/'><p class='p-sub'>".$judul."</p>
+                <a href='detailalam.php?kode_wisata=".$id."'><p class='p-sub'>".$judul."</p>
                 <img src='img/alam/".$gambar.".png' class='img-category'></a>
             </td>"; 
         echo "</div>";   

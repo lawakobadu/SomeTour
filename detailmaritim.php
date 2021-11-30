@@ -1,3 +1,8 @@
+<?php
+include_once("koneksi.php");
+$kode_wisata = $_GET['kode_wisata'];
+$result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi, gambar FROM objek_wisata WHERE kode_wisata='$kode_wisata'") or die (mysqli_error($conn));
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Style -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/SomeTour/assets/css/style.css">
 
     <!-- Icon -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -16,22 +21,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Sejarah</title>
+    <title>Alam</title>
 </head>
 <body>
 <div class="body">
     <nav>
-        <a href="/index.html"><img src="/img/LOGO SOMETOUR.PNG"></a>
+        <a href="/SomeTour/index.php"><img src="/SomeTour/img/LOGO SOMETOUR.PNG"></a>
         <div class="nav-links">
             <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
             <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="#">Category<i class='bx bxs-chevron-down'></i></a>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
                     <div class="sub-category">
                         <ul>
-                            <li><a href="/alam.html">Alam</a></li>
-                            <li><a href="#">Sejarah</a></li>
-                            <li><a href="/maritim.html">Maritim</a></li>
+                            <li><a href="#">Alam</a></li>
+                            <li><a href="sejarah.php">Sejarah</a></li>
+                            <li><a href="maritim.php">Maritim</a></li>
                         </ul>
                     </div>
                 </li>
@@ -47,45 +52,34 @@
             </ul>
         </div>
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
-    </nav>
-    <div class="content1">
-        <div class="img-gallery">
-            <div class="img">
-                <i class='bx bxl-instagram bx-md'></i>
-                <img src="/img/cowok.png" alt="">
-            </div>
-            <div class="img">
-                <i class='bx bxl-instagram bx-md'></i>
-                <img src="/img/cowok.png" alt="">
-            </div>
-            <div class="img">
-                <i class='bx bxl-instagram bx-md'></i>
-                <img src="/img/cowok.png" alt="">
-            </div>
-            <div class="img">
-                <i class='bx bxl-instagram bx-md'></i>
-                <img src="/img/cewek.png" alt="">
-            </div>
-            <div class="img">
-                <i class='bx bxl-instagram bx-md'></i>
-                <img src="/img/cewek.png" alt="">
-            </div>
-            <div class="img">
-                <i class='bx bxl-instagram bx-md'></i>
-                <img src="/img/cewek.png" alt="">
-            </div>
-            <div class="img">
-                <i class='bx bxl-instagram bx-md'></i>
-                <img src="/img/cewek.png" alt="">
-            </div>
-        </div>
-    </div>
-</div>
+    </nav><br><br><br>
+    <div class="content">
+    <?php  
+    while($data = mysqli_fetch_array($result)) { 
+        $gambar = $data['gambar'];
+        $judul = $data['judul'];
+        $alamat = $data['alamat'];
+        $jam = $data['jam_operasional'];
+        $deskripsi = $data['deskripsi'];
 
+        echo "<h1>".$judul."</h1>";
+        echo "<div class='rectangle-content'>";
+        echo "<p>Lokasi : ".$alamat."</p>";
+        echo "<p>Jam_Operasional : ".$jam."</p>";
+        echo "<p>Deskripsi : <br>".$deskripsi."</p>";
+        echo "<img src='img/maritim/".$gambar.".png' class='img-category'>";
+        echo "</div";
+    }
+    ?>
+    </div>
+    <a class="prev" onclick="plusSlides(-9)">&#10094;</a>
+    <a class="next" onclick="plusSlides(9)">&#10095;</a>
+    </div>
+<br><br><br>
     <footer>
         <div class="row-1">
             <div class="col-1">
-                <img src="/img/LOGO SOMETOUR.PNG" alt="">
+                <img src="img/LOGO SOMETOUR.PNG" alt="">
                 <i class='bx bxl-twitter bx-sm'></i>
                 <i class='bx bxl-facebook bx-sm'></i>
                 <i class='bx bxl-instagram bx-sm' ></i>
@@ -120,7 +114,7 @@
             navlinks.style.right = "-100%";
         }
     </script>
-    <script src="/assets/js/splide.min.js"></script>
-    <script src="/assets/js/script.js"></script>
+    <script src="assets/js/splide.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
