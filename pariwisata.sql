@@ -68,7 +68,7 @@ CREATE TABLE `objek_wisata` (
   `gambar` varchar(255) NOT NULL,
   `alamat` varchar(100) NOT NULL,
   `jam_operasional` varchar(50) NOT NULL,
-  `status` int(5) NOT NULL,
+  `status` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
