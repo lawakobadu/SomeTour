@@ -100,11 +100,11 @@ if(isset($_POST['submit'])){
  $query = mysqli_query($koneksi,"INSERT INTO objek_wisata VALUES ('$kode_wisata','$id_user','$judul','$jenis_pariwisata','$deskripsi','$gambar','$alamat','$jam_operasional','$status')");
 
      if($query){
-        echo "berhasil";
-        header("location:index.php");
+        echo "<script>alert('Data Berhasil Ditambahkan!')</script>";
+        echo "<script>location='index.php';</script>";
     }
     else{
-     echo "data gagal disimpan";
+        echo "<script>alert('Data Gagal Diubah')</script>";
  }         
 }
 
