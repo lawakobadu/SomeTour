@@ -42,7 +42,7 @@
                         </div>
                     </li>
                     <li><a href="#">Most Popular</a></li>
-                    <li><a href="#">Share Your Story</a></li>
+                    <li><a href="share.php">Share Your Story</a></li>
                     <li><a href="#layer4">Profile</a></li>
                     <li>
                         <div class="search">

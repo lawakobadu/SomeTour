@@ -72,8 +72,6 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
     }
     ?>
     </div>
-    <a class="prev" onclick="plusSlides(-9)">&#10094;</a>
-    <a class="next" onclick="plusSlides(9)">&#10095;</a>
     </div>
 <br><br><br>
     <footer>

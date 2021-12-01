@@ -1,8 +1,3 @@
-<?php
-include_once("koneksi.php");
-$kode_wisata = $_GET['kode_wisata'];
-$result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi, gambar FROM objek_wisata WHERE kode_wisata='$kode_wisata'") or die (mysqli_error($conn));
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +6,7 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Style -->
-    <link rel="stylesheet" href="/SomeTour/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Icon -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -26,7 +21,7 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
 <body>
 <div class="body">
     <nav>
-        <a href="/SomeTour/index.php"><img src="/SomeTour/img/LOGO SOMETOUR.PNG"></a>
+        <a href="index.php"><img src="img/LOGO SOMETOUR.PNG"></a>
         <div class="nav-links">
             <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
             <ul>
@@ -34,7 +29,7 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
                 <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
                     <div class="sub-category">
                         <ul>
-                            <li><a href="#">Alam</a></li>
+                            <li><a href="alam.php">Alam</a></li>
                             <li><a href="sejarah.php">Sejarah</a></li>
                             <li><a href="maritim.php">Maritim</a></li>
                         </ul>
@@ -53,26 +48,21 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
         </div>
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
     </nav><br><br><br>
-    <div class="content">
-    <?php  
-    while($data = mysqli_fetch_array($result)) { 
-        $gambar = $data['gambar'];
-        $judul = $data['judul'];
-        $alamat = $data['alamat'];
-        $jam = $data['jam_operasional'];
-        $deskripsi = $data['deskripsi'];
-
-        echo "<h1>".$judul."</h1>";
-        echo "<div class='rectangle-content'>";
-        echo "<p>Lokasi : ".$alamat."</p>";
-        echo "<p>Jam_Operasional : ".$jam."</p>";
-        echo "<p>Deskripsi : <br>".$deskripsi."</p>";
-        echo "<img src='img/sejarah/".$gambar.".png' class='img-category'>";
-        echo "</div";
-    }
-    ?>
-    </div>
-    </div>
+    <div class="container">
+		<form action="aksi.php" method="post" enctype="multipart/form-data">
+            <h2 style="text-align: center;">Share Your Story</h2>
+			<div class="form-group">
+				<label>Your Description :</label>
+				<textarea type="text" class="form-control" name="experience" required="required" rows="7" cols="70"></textarea>
+			</div>
+			<div class="form-group">
+				<label>Upload your image :</label>
+				<input type="file" name="gambar_exp" required="required">
+				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
+			</div>			
+			<input type="submit" name="" value="Upload" class="btn btn-primary">
+		</form>
+	</div>
 <br><br><br>
     <footer>
         <div class="row-1">

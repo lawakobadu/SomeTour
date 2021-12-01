@@ -53,7 +53,7 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
         </div>
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
     </nav><br><br><br>
-    <div class="content">
+    <div class="content-detail">
     <?php  
     while($data = mysqli_fetch_array($result)) { 
         $gambar = $data['gambar'];
@@ -62,18 +62,19 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
         $jam = $data['jam_operasional'];
         $deskripsi = $data['deskripsi'];
 
-        echo "<h1>".$judul."</h1>";
+        echo "<div>";
+        echo "<h1 style='font-size: 42px; '>".$judul."</h1>";
         echo "<div class='rectangle-content'>";
-        echo "<p>Lokasi : ".$alamat."</p>";
-        echo "<p>Jam_Operasional : ".$jam."</p>";
-        echo "<p>Deskripsi : <br>".$deskripsi."</p>";
+        echo "<p>Lokasi : ".$alamat."</p><br>";
+        echo "<p>Jam_Operasional : ".$jam."</p><br>";
+        echo "<p>Deskripsi : <br>".$deskripsi."</p><br>";
         echo "<img src='img/alam/".$gambar.".png' class='img-category'>";
         echo "</div";
+        echo "</div>";
     }
     ?>
     </div>
-    <a class="prev" onclick="plusSlides(-9)">&#10094;</a>
-    <a class="next" onclick="plusSlides(9)">&#10095;</a>
+    </div>
     </div>
 <br><br><br>
     <footer>
