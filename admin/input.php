@@ -104,7 +104,7 @@ if(isset($_POST['submit'])){
         echo "<script>location='index.php';</script>";
     }
     else{
-        echo "<script>alert('Data Gagal Diubah')</script>";
+        echo "<script>alert('Data Gagal Ditambahkan')</script>";
  }         
 }
 
