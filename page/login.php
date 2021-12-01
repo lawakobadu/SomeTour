@@ -38,14 +38,14 @@
         $_SESSION['email']=$email;
         $_SESSION['user']=$baris;
         echo "<script>alert('Anda berhasil login sebagai Admin')</script>";
-        echo "<script>location='admin/index.php';</script>";
+        echo "<script>location='../admin/index.php';</script>";
       }
       elseif ($baris['level']=="user") {
         session_start();
         $_SESSION['email']=$email;
         $_SESSION['user']=$baris;
         echo "<script>alert('Anda berhasil login sebagai User')</script>";
-        echo "<script>location='user/index.php';</script>";
+        echo "<script>location='../user/index.php';</script>";
 
       }
 
