@@ -111,8 +111,6 @@ $folder ='./gambar/';
 if($sql){
     echo "<script>alert('Data Berhasil Diubah')</script>";
     echo "<script>location='index.php';</script>";
-
-
     }
     else{
         echo "<script>alert('Data Gagal Diubah')</script>";
