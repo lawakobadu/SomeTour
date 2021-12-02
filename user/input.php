@@ -1,7 +1,7 @@
 <!DOCTYPE html>
  <html>
  <head>
-  <title>Admin</title>
+  <title>Welcome User</title>
 </head>
 <body>
 
@@ -65,14 +65,7 @@
     <td>Jam Operasional</td>
     <td><input type="text" name="jam_operasional" required=""></td>
 </tr>
-<tr>
-  <td>Opsi</td>
-  <td>
-    <select name="status">
-      <option value="0">0</option>
-      <option value="1">1</option>
-  </select>
-</td>
+
 
 </table>
 <br><input type="submit" name="submit" value="SIMPAN" >
@@ -83,19 +76,33 @@
 include "koneksi.php";
 if(isset($_POST['submit'])){
 
+    $id_user = $_SESSION['user']['id_user'];
+    $kode_wisata = $_POST['kode_wisata'];
+    $judul = $_POST['judul'];
+    $jenis_pariwisata = $_POST['jenis_pariwisata'];
+    $deskripsi = $_POST['deskripsi'];
+    $alamat = $_POST['alamat'];
+    $jam_operasional = $_POST['jam_operasional'];
+    $status = 0;    
+
  $gambar =$_FILES['gambar']['name'];
  $source =$_FILES['gambar']['tmp_name'];
  $folder ='./../img/';
+//  if($jenis_pariwisata = alam){
+//     $folder ='./../img/alam/';
+//  }
+//  elseif ($jenis_pariwisata = maritim){
+//     $folder ='./../img/maritim/';
+
+//  }
+//  elseif ($jenis_pariwisata = sejarah){
+//     $folder ='./../img/sejarah/';
+//  }
+//  else{}
+ 
  move_uploaded_file($source, $folder.$gambar);
 
- $id_user = $_SESSION['user']['id_user'];
- $kode_wisata = $_POST['kode_wisata'];
- $judul = $_POST['judul'];
- $jenis_pariwisata = $_POST['jenis_pariwisata'];
- $deskripsi = $_POST['deskripsi'];
- $alamat = $_POST['alamat'];
- $jam_operasional = $_POST['jam_operasional'];
- $status = $_POST['status'];
+
 
  $query = mysqli_query($koneksi,"INSERT INTO objek_wisata VALUES ('$kode_wisata','$id_user','$judul','$jenis_pariwisata','$deskripsi','$gambar','$alamat','$jam_operasional','$status')");
 
