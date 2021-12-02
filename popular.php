@@ -1,6 +1,6 @@
 <?php
 include_once("koneksi.php");
-$result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisata FROM objek_wisata WHERE jenis_pariwisata='alam'") or die (mysqli_error($conn));
+$result = mysqli_query($conn, "SELECT judul, deskripsi, gambar, kode_wisata FROM objek_wisata WHERE kode_wisata='1' OR kode_wisata='19' OR kode_wisata='37'") or die (mysqli_error($conn));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Alam</title>
+    <title>Most Popular</title>
 </head>
 <body>
 <div class="body">
@@ -29,7 +29,7 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
         <div class="nav-links">
             <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
             <ul>
-                <form action="cari.php" method="post">
+            <form action="cari.php" method="post">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
                         <div class="sub-category">
@@ -40,7 +40,7 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
                             </ul>
                         </div>
                     </li>
-                    <li><a href="popular.php">Most Popular</a></li>
+                    <li><a href="#">Most Popular</a></li>
                     <li><a href="share.php">Share Your Story</a></li>
                     <li><a href="index.php#layer4">Profile</a></li>
                     <?php
@@ -51,30 +51,29 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
                     ?>
                     <input type="text" name="cari" id="" class="search-txt hide" placeholder="Cari">
                     <i class='bx bx-search search-btn'></i>
-                </form>
+                    </form>
             </ul>
         </div>
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
-    </nav>
-    <div class="content">
-    <?php  
-    while($data = mysqli_fetch_array($result)) { 
-        $gambar = $data['gambar'];
-        $judul = $data['judul'];
-        $id = $data['kode_wisata'];
-        echo "<div class='img-sub'>";
-        echo "<tr>";
-        echo "<td>
-                <a href='detailalam.php?kode_wisata=".$id."'><p class='p-sub'>".$judul."</p>
-                <img src='img/alam/".$gambar.".png' class='img-category'></a>
-            </td>"; 
-        echo "</div>";   
-    }
-    ?>
-    </div>
-    <a class="prev" onclick="plusSlides(-9)">&#10094;</a>
-    <a class="next" onclick="plusSlides(9)">&#10095;</a>
-</div>
+    </nav><br>
+    <div class="content-popular">
+     <?php
+     while($data = mysqli_fetch_array($result)) {
+     
+     $judul = $data['judul'];
+     $gambar = $data['gambar'];
+     $deskripsi = $data['deskripsi'];
+     $id = $data['kode_wisata'];
+
+     echo "<h1 style='font-size: 42px; margin-left: 2%;'>".$judul."</h1>";
+     echo "<div class='popular'>";
+     echo "<img src='img/popular/".$gambar.".png' class='img-category'>";
+     echo "<a href='detailalam.php?kode_wisata=".$id."'><p>Baca Selengkapnya</p></a>";
+     echo "</div>";
+     echo "<hr>";
+     }
+     ?>
+	</div>
 <br><br><br>
     <footer>
         <div class="row-1">

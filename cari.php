@@ -1,7 +1,3 @@
-<?php
-include_once("koneksi.php");
-$result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisata FROM objek_wisata WHERE jenis_pariwisata='alam'") or die (mysqli_error($conn));
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +16,7 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Alam</title>
+    <title>Pencarian</title>
 </head>
 <body>
 <div class="body">
@@ -29,7 +25,7 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
         <div class="nav-links">
             <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
             <ul>
-                <form action="cari.php" method="post">
+            <form action="cari.php" method="post">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
                         <div class="sub-category">
@@ -51,30 +47,41 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
                     ?>
                     <input type="text" name="cari" id="" class="search-txt hide" placeholder="Cari">
                     <i class='bx bx-search search-btn'></i>
-                </form>
+                    </form>
             </ul>
         </div>
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
-    </nav>
-    <div class="content">
-    <?php  
-    while($data = mysqli_fetch_array($result)) { 
-        $gambar = $data['gambar'];
-        $judul = $data['judul'];
-        $id = $data['kode_wisata'];
-        echo "<div class='img-sub'>";
-        echo "<tr>";
-        echo "<td>
-                <a href='detailalam.php?kode_wisata=".$id."'><p class='p-sub'>".$judul."</p>
-                <img src='img/alam/".$gambar.".png' class='img-category'></a>
-            </td>"; 
-        echo "</div>";   
-    }
+    </nav><br>
+    <div class="">
+        <?php
+
+        include "koneksi.php";
+        if (isset($_POST['cari'])) {
+            $cari=trim($_POST['cari']);
+            $result = mysqli_query($conn, "SELECT judul, gambar FROM objek_wisata WHERE judul LIKE '%".$cari."%' ORDER BY judul ASC") or die (mysqli_error($conn));
+
+        }else {
+            $result = mysqli_query($conn, "SELECT judul, gambar FROM objek_wisata ORDER BY judul ASC") or die (mysqli_error($conn));
+        }
+
+
+        $hasil=mysqli_query($conn,$result);
+        $no=0;
+        while ($data = mysqli_fetch_array($hasil)) {
+            $no++;
+            ?>
+            <tbody>
+            <tr>
+                <td><?php echo $no;?></td>
+                <td><?php echo $data["judul"]; ?></td>
+                <td><?php echo $data["gambar"];   ?></td>
+            </tr>
+            </tbody>
+            <?php
+        }
+        ?>
     ?>
-    </div>
-    <a class="prev" onclick="plusSlides(-9)">&#10094;</a>
-    <a class="next" onclick="plusSlides(9)">&#10095;</a>
-</div>
+	</div>
 <br><br><br>
     <footer>
         <div class="row-1">

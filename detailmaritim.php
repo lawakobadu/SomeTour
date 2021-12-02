@@ -1,4 +1,25 @@
 <?php
+$host       = 'localhost';
+$user       = 'root';
+$password   = '';
+$db         = 'pariwisata';
+
+$con = new mysqli($host, $user, $password, $db);
+
+//ambil rata-rata jumlah rating
+$q      = $con->query("SELECT AVG(rate) AS jml FROM rating")->fetch_assoc();
+$hasil  = ceil($q['jml']);
+
+//cek ip user
+$cek    = $con->query("SELECT * FROM `rating` WHERE ipuser = '" . md5($_SERVER['REMOTE_ADDR']) . "'");
+
+if ($cek->num_rows > 0) {
+    $cek = $cek->fetch_assoc();
+    $c   = $cek['rate'];
+}
+
+?>
+<?php
 include_once("koneksi.php");
 $kode_wisata = $_GET['kode_wisata'];
 $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi, gambar FROM objek_wisata WHERE kode_wisata='$kode_wisata'") or die (mysqli_error($conn));
@@ -30,29 +51,33 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
         <div class="nav-links">
             <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
-                    <div class="sub-category">
-                        <ul>
-                            <li><a href="alam.php">Alam</a></li>
-                            <li><a href="sejarah.php">Sejarah</a></li>
-                            <li><a href="#">Maritim</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#">Most Popular</a></li>
-                <li><a href="share.php">Share Your Story</a></li>
-                <li><a href="#layer4">Profile</a></li>
-                <li>
-                    <div class="search">
-                        <input type="text" name="" id="" class="search-txt hide" placeholder="Cari">
-                        <i class='bx bx-search search-btn'></i>
-                    </div>
-                </li>
+                <form action="cari.php" method="post">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
+                        <div class="sub-category">
+                            <ul>
+                                <li><a href="alam.php">Alam</a></li>
+                                <li><a href="sejarah.php">Sejarah</a></li>
+                                <li><a href="maritim.php">Maritim</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="popular.php">Most Popular</a></li>
+                    <li><a href="share.php">Share Your Story</a></li>
+                    <li><a href="index.php#layer4">Profile</a></li>
+                    <?php
+                        $cari="";
+                        if (isset($_POST['cari'])) {
+                            $cari=$_POST['cari'];
+                        }
+                    ?>
+                    <input type="text" name="cari" id="" class="search-txt hide" placeholder="Cari">
+                    <i class='bx bx-search search-btn'></i>
+                </form>
             </ul>
         </div>
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
-    </nav><br><br><br>
+    </nav>
     <div class="content-detail">
     <?php  
     while($data = mysqli_fetch_array($result)) { 
@@ -72,10 +97,49 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
         echo "</div>";
         echo "<img src='img/maritim/".$gambar.".png' class='img-category'>";
         echo "</div>";
-        echo "</div>";
-        echo "</div>";
 }
 ?>
+    <div id="star">
+                <?php
+                for ($i = 0; $i < $hasil; $i++) {
+                    echo '<span class="on"><i class="fa fa-star"></i></span>';
+                }
+
+                for ($i = 5; $i > $hasil; $i--) {
+                    echo '<span class="off"><i class="fa fa-star"></i></span>';
+                }
+                ?>
+    </div>
+    <form id='rating' class="rating">
+
+        <input type="radio" class="rate" id="star5" name="rating" value="5" <?php if (isset($c) && $c == '5') {
+                                                                                echo 'checked';
+                                                                            } ?> />
+        <label for="star5" title="Sempurna - 5 Bintang"></label>
+
+        <input type="radio" class="rate" id="star4" name="rating" value="4" <?php if (isset($c) && $c == '4') {
+                                                                                echo 'checked';
+                                                                            } ?> />
+        <label for="star4" title="Sangat Bagus - 4 Bintang"></label>
+
+        <input type="radio" class="rate" id="star3" name="rating" value="3" <?php if (isset($c) && $c == '3') {
+                                                                                echo 'checked';
+                                                                            } ?> />
+        <label for="star3" title="Bagus - 3 Bintang"></label>
+
+        <input type="radio" class="rate" id="star2" name="rating" value="2" <?php if (isset($c) && $c == '2') {
+                                                                                echo 'checked';
+                                                                            } ?> />
+        <label for="star2" title="Tidak Buruk - 2 Bintang"></label>
+
+        <input type="radio" class="rate" id="star1" name="rating" value="1" <?php if (isset($c) && $c == '1') {
+                                                                                echo 'checked';
+                                                                            } ?> />
+        <label for="star1" title="Buruk - 1 Bintang"></label>
+
+    </form>
+    </div>
+    </div>
 <br><br><br>
     <footer>
         <div class="row-1">
@@ -115,7 +179,29 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
             navlinks.style.right = "-100%";
         }
     </script>
-    <script src="assets/js/splide.min.js"></script>
+    <script type="text/javascript" src="./assets/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#rating .rate").click(function() {
+
+                $.ajax({
+                    url: "./proses.php",
+                    method: "POST",
+                    data: {
+                        rate: $(this).val()
+                    },
+                    success: function(obj) {
+                        var obj = obj.split('|');
+
+                        $('#star' + obj[0]).attr('checked');
+                        $('#hasil').html('Rating ' + obj[1] + '.0');
+                        $('#star').html(obj[2]);
+                        alert("terima kasih atas penilaian anda");
+                    }
+                });
+            });
+        });
+    </script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>

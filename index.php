@@ -31,6 +31,7 @@
             <div class="nav-links">
                 <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
                 <ul>
+                    <form action="cari.php" method="post">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
                         <div class="sub-category">
@@ -41,15 +42,18 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="#">Most Popular</a></li>
+                    <li><a href="popular.php">Most Popular</a></li>
                     <li><a href="share.php">Share Your Story</a></li>
                     <li><a href="#layer4">Profile</a></li>
-                    <li>
-                        <div class="search">
-                            <input type="text" name="" id="" class="search-txt hide" placeholder="Cari">
-                            <i class='bx bx-search search-btn'></i>
-                        </div>
-                    </li>
+                    <?php
+                        $cari="";
+                        if (isset($_POST['cari'])) {
+                            $cari=$_POST['cari'];
+                        }
+                    ?>
+                    <input type="text" name="cari" id="" class="search-txt hide" placeholder="Cari">
+                    <i class='bx bx-search search-btn'></i>
+                    </form>
                 </ul>
             </div>
             <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>

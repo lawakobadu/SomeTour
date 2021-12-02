@@ -4,6 +4,77 @@
     font-family: 'Roboto', sans-serif; 
 }
 
+@import url(./font-awesome.css);
+
+        form,
+        label {
+            margin: 0;
+            padding: 0;
+        }
+
+        .rating {
+            border: none;
+            float: left;
+        }
+
+        .rating>input {
+            display: none;
+        }
+
+        .rating>label::before {
+            margin: 5px;
+            font-size: 1.25em;
+            font-family: FontAwesome;
+            display: inline-block;
+            content: "\f005";
+        }
+
+        .rating>label {
+            color: #ddd;
+            float: right;
+        }
+
+        .rating>input:checked~label,
+        .rating:not(:checked)>label:hover,
+        .rating:not(:checked)>label:hover~label {
+            color: #f7d106;
+        }
+
+        .rating>input:checked+label:hover,
+        .rating>input:checked~label:hover,
+        .rating>label:hover~input:checked~label,
+        .rating>input:checked~label:hover~label {
+            color: #fce873;
+        }
+
+        h4 {
+            font-weight: normal;
+            margin-top: 40px;
+            margin-bottom: 0px;
+        }
+
+        #hasil {
+            font-size: 20px;
+        }
+
+        #star {
+            float: left;
+            padding-right: 20px;
+        }
+
+        #star span {
+            padding: 3px;
+            font-size: 20px;
+        }
+
+        .on {
+            color: #f7d106
+        }
+
+        .off {
+            color: #ddd;
+        }
+
 body{
     background: #F6F6F6;
 }
@@ -17,7 +88,6 @@ body{
 }
 
 .content{
-    position: relative;
     padding: 2% 6%;
     display: grid;
     width: 88%;
@@ -134,9 +204,11 @@ body{
     background: url('/SomeTour/img/9.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    position: relative;
-    margin: 2%;
+    margin: 0 2% 24%;
+    height: 240px;
     border-radius: 30px;
+    position: relative;
+    z-index: 1;
 }
 
 .container form{
@@ -144,15 +216,23 @@ body{
     height: auto;
     background: #fff;
     border-radius: 30px;
-    position: relative;
+    position: absolute;
     margin-left: auto;
     margin-right: auto;
     padding: 2%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .form-group{
     margin: 20px;
     font-size: 18px;
+    display: flex;
+}
+
+.form-group input{
+    margin-left: 7%;
 }
 
 textarea{
@@ -162,6 +242,11 @@ textarea{
     margin-left: auto;
     margin-right: auto;
     font-size: 18px;
+    padding: 2%;
+}
+
+.popular{
+    display: flex;
     padding: 2%;
 }
 
@@ -234,6 +319,7 @@ nav img{
     margin-top: 8px;
     margin-left: -15px;
     border-radius: 20px;
+    z-index: 2;
 }
 
 .nav-links ul li:hover .sub-category ul{
@@ -257,10 +343,6 @@ nav img{
 
 .search-btn{
     transition: 0.5s;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 20px;
 }
 

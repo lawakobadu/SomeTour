@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Alam</title>
+    <title>Share your story</title>
 </head>
 <body>
 <div class="body">
@@ -25,29 +25,33 @@
         <div class="nav-links">
             <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
-                    <div class="sub-category">
-                        <ul>
-                            <li><a href="alam.php">Alam</a></li>
-                            <li><a href="sejarah.php">Sejarah</a></li>
-                            <li><a href="maritim.php">Maritim</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#">Most Popular</a></li>
-                <li><a href="#">Share Your Story</a></li>
-                <li><a href="#layer4">Profile</a></li>
-                <li>
-                    <div class="search">
-                        <input type="text" name="" id="" class="search-txt hide" placeholder="Cari">
-                        <i class='bx bx-search search-btn'></i>
-                    </div>
-                </li>
+            <form action="cari.php" method="post">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
+                        <div class="sub-category">
+                            <ul>
+                                <li><a href="alam.php">Alam</a></li>
+                                <li><a href="sejarah.php">Sejarah</a></li>
+                                <li><a href="maritim.php">Maritim</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="popular.php">Most Popular</a></li>
+                    <li><a href="share.php">Share Your Story</a></li>
+                    <li><a href="index.php#layer4">Profile</a></li>
+                    <?php
+                        $cari="";
+                        if (isset($_POST['cari'])) {
+                            $cari=$_POST['cari'];
+                        }
+                    ?>
+                    <input type="text" name="cari" id="" class="search-txt hide" placeholder="Cari">
+                    <i class='bx bx-search search-btn'></i>
+                </form>
             </ul>
         </div>
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
-    </nav><br><br><br>
+    </nav><br>
     <div class="container">
 		<form action="aksi.php" method="post" enctype="multipart/form-data">
             <h2 style="text-align: center;">Share Your Story</h2>
