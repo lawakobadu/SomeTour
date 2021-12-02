@@ -29,7 +29,9 @@ $nomor=1;
 $sql=mysqli_query($koneksi,"SELECT * FROM objek_wisata WHERE id_user = '".$_SESSION['user']['id_user']."'");
 
 while($r=mysqli_fetch_array($sql)){ 
-	$jenis_pariwisata = $r['jenis_pariwisata']; ?>
+	$jenis_pariwisata = $r['jenis_pariwisata']; 
+	$status = $r['status'];
+	?>
 
 		<tr>
 			<td><?php echo $nomor++ ?></td>
@@ -42,7 +44,14 @@ while($r=mysqli_fetch_array($sql)){
 			</td>
             <td><?php echo $r['alamat']; ?></td>
             <td><?php echo $r['jam_operasional']; ?></td>
-            <td><?php echo $r['status']; ?></td>
+            <td><?php 
+			if ($status != 1){
+				echo "Menunggu Persetujuan";
+			}
+			elseif($status == 1  ) {
+				echo "Disetujui"; 
+			}
+				?></td>
 			<td>
 				<a class="edit" href="edit.php?kode_wisata=<?php echo $r['kode_wisata']; ?>">Edit|</a>
 			</td>
