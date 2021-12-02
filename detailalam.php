@@ -41,7 +41,7 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
                     </div>
                 </li>
                 <li><a href="#">Most Popular</a></li>
-                <li><a href="#">Share Your Story</a></li>
+                <li><a href="share.php">Share Your Story</a></li>
                 <li><a href="#layer4">Profile</a></li>
                 <li>
                     <div class="search">
@@ -63,19 +63,19 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
         $deskripsi = $data['deskripsi'];
 
         echo "<div>";
-        echo "<h1 style='font-size: 42px; '>".$judul."</h1>";
+        echo "<h1 style='font-size: 42px; margin-left: 2%;'>".$judul."</h1>";
         echo "<div class='rectangle-content'>";
         echo "<p>Lokasi : ".$alamat."</p><br>";
         echo "<p>Jam_Operasional : ".$jam."</p><br>";
         echo "<p>Deskripsi : <br>".$deskripsi."</p><br>";
-        echo "<img src='img/alam/".$gambar.".png' class='img-category'>";
-        echo "</div";
         echo "</div>";
-    }
-    ?>
-    </div>
-    </div>
-    </div>
+        echo "</div>";
+        echo "<img src='img/alam/".$gambar.".png' class='img-category'>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+}
+?>
 <br><br><br>
     <footer>
         <div class="row-1">

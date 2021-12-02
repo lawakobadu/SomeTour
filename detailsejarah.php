@@ -21,7 +21,7 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Alam</title>
+    <title>sejarah</title>
 </head>
 <body>
 <div class="body">
@@ -34,14 +34,14 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
                 <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
                     <div class="sub-category">
                         <ul>
-                            <li><a href="#">Alam</a></li>
-                            <li><a href="sejarah.php">Sejarah</a></li>
+                            <li><a href="alam.php">Alam</a></li>
+                            <li><a href="#">Sejarah</a></li>
                             <li><a href="maritim.php">Maritim</a></li>
                         </ul>
                     </div>
                 </li>
                 <li><a href="#">Most Popular</a></li>
-                <li><a href="#">Share Your Story</a></li>
+                <li><a href="share.php">Share Your Story</a></li>
                 <li><a href="#layer4">Profile</a></li>
                 <li>
                     <div class="search">
@@ -53,7 +53,7 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
         </div>
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
     </nav><br><br><br>
-    <div class="content">
+    <div class="content-detail">
     <?php  
     while($data = mysqli_fetch_array($result)) { 
         $gambar = $data['gambar'];
@@ -62,17 +62,20 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
         $jam = $data['jam_operasional'];
         $deskripsi = $data['deskripsi'];
 
-        echo "<h1>".$judul."</h1>";
+        echo "<div>";
+        echo "<h1 style='font-size: 42px; margin-left: 2%;'>".$judul."</h1>";
         echo "<div class='rectangle-content'>";
-        echo "<p>Lokasi : ".$alamat."</p>";
-        echo "<p>Jam_Operasional : ".$jam."</p>";
-        echo "<p>Deskripsi : <br>".$deskripsi."</p>";
-        echo "<img src='img/sejarah/".$gambar.".png' class='img-category'>";
-        echo "</div";
-    }
-    ?>
-    </div>
-    </div>
+        echo "<p>Lokasi : ".$alamat."</p><br>";
+        echo "<p>Jam_Operasional : ".$jam."</p><br>";
+        echo "<p>Deskripsi : <br>".$deskripsi."</p><br>";
+        echo "</div>";
+        echo "</div>";
+        echo "<img src='img/sejarah/".$gambar.".jpg' class='img-category'>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+}
+?>
 <br><br><br>
     <footer>
         <div class="row-1">

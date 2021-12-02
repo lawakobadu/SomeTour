@@ -112,13 +112,19 @@ body{
     display: flex;
 }
 
+.content-detail img{
+    margin: auto;
+    width: 550px;
+    height: 350px;
+}
+
 .rectangle-content{
     position: relative;
     margin-left: auto;
-    margin-right: auto;
-    width: 900px;
+    margin-right: 2%;
+    width: auto;
     padding: 2%;
-    height: 650px;
+    height: auto;
     background-color: #008DC3;
     color: #fff;
     font-size: 24px;

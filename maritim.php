@@ -20,7 +20,7 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Alam</title>
+    <title>Maritim</title>
 </head>
 <body>
 <div class="body">
@@ -33,14 +33,14 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
                 <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
                     <div class="sub-category">
                         <ul>
-                            <li><a href="#">Alam</a></li>
+                            <li><a href="alam.php">Alam</a></li>
                             <li><a href="sejarah.php">Sejarah</a></li>
-                            <li><a href="maritim.php">Maritim</a></li>
+                            <li><a href="#">Maritim</a></li>
                         </ul>
                     </div>
                 </li>
                 <li><a href="#">Most Popular</a></li>
-                <li><a href="#">Share Your Story</a></li>
+                <li><a href="share.php">Share Your Story</a></li>
                 <li><a href="#layer4">Profile</a></li>
                 <li>
                     <div class="search">
@@ -61,7 +61,7 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
         echo "<div class='img-sub'>";
         echo "<tr>";
         echo "<td>
-                <a href='detailalam.php?kode_wisata=".$id."'><p class='p-sub'>".$judul."</p>
+                <a href='detailmaritim.php?kode_wisata=".$id."'><p class='p-sub'>".$judul."</p>
                 <img src='img/maritim/".$gambar.".png' class='img-category'></a>
             </td>"; 
         echo "</div>";   

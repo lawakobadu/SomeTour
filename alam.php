@@ -40,7 +40,7 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
                     </div>
                 </li>
                 <li><a href="#">Most Popular</a></li>
-                <li><a href="#">Share Your Story</a></li>
+                <li><a href="share.php">Share Your Story</a></li>
                 <li><a href="#layer4">Profile</a></li>
                 <li>
                     <div class="search">
