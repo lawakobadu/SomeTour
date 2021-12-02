@@ -172,10 +172,13 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
+
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `level`) VALUES
 (1, 'riza', 'riza@gmail.com', 'd5f275885bd96778f7f01c814e405e7c', 'admin'),
-(2, 'hadef', 'hadef@gmail.com', '9d0d77659a6f4d38e5e6a6649b7f7db7', 'user');
-
+(2, 'hadef', 'hadef@gmail.com', '9d0d77659a6f4d38e5e6a6649b7f7db7', 'user'),
+(3, 'fadli', 'fadli@gmail.com', '0a539e9da09b0ab58fd282832c07b6ab', 'user'),
+(4, 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(5, 'user', 'user@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'user');
 --
 -- Indexes for dumped tables
 --
