@@ -103,10 +103,7 @@
                         <div>
                             <p>We believe in a travelling experience by
                                 providing tour plan that suits your the best!</p><br><br><br><br><br><br>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Expedita pariatur maiores vero quis iste veritatis ratione? 
-                                Ad illo maiores, cumque impedit, quia, nihil voluptatem 
-                                explicabo rerum saepe eius eligendi. Alias?</p>
+                            <p>Puncak gagoan adalah tempat indah dan seru bila jalan sama kawan-kawan</p>
                                 <div class="arrow">
                                     <i class='bx bx-left-arrow-alt bx-md'></i>
                                     <i class='bx bx-right-arrow-alt bx-md'></i>
@@ -131,32 +128,32 @@
                 <div class="rectangle4" data-aos="fade-left" data-aos-duration="1500">
                     <div class="img-gallery">
                         <div class="img">
-                            <i class='bx bxl-instagram bx-md'></i>
-                            <img src="img/cowok.png" alt="">
+                        <a href="https://www.instagram.com/fadli_ramadhan02/"><i class='bx bxl-instagram bx-md'></i></a>
+                            <img src="img/fadli.jpg" alt="">
                         </div>
                         <div class="img">
-                            <i class='bx bxl-instagram bx-md'></i>
-                            <img src="img/cowok.png" alt="">
+                        <a href="https://www.instagram.com/hadefriza/"><i class='bx bxl-instagram bx-md'></i></a>
+                            <img src="img/hadef.jpg" alt="">
                         </div>
                         <div class="img">
-                            <i class='bx bxl-instagram bx-md'></i>
-                            <img src="img/cowok.png" alt="">
+                        <a href="https://www.instagram.com/zoehds/"><i class='bx bxl-instagram bx-md'></i></a>
+                            <img src="img/zuhdi.jpg" alt="">
                         </div>
                         <div class="img">
-                            <i class='bx bxl-instagram bx-md'></i>
-                            <img src="img/cewek.png" alt="">
+                        <a href="https://www.instagram.com/ufaaurora/"><i class='bx bxl-instagram bx-md'></i></a>
+                            <img src="img/ufa.jpg" alt="">
                         </div>
                         <div class="img">
-                            <i class='bx bxl-instagram bx-md'></i>
-                            <img src="img/cewek.png" alt="">
+                            <a href="https://www.instagram.com/indahkrrrrr/"><i class='bx bxl-instagram bx-md'></i></a>
+                            <img src="img/indah.jpg" alt="">
                         </div>
                         <div class="img">
-                            <i class='bx bxl-instagram bx-md'></i>
-                            <img src="img/cewek.png" alt="">
+                        <a href="https://www.instagram.com/shintaapz/"><i class='bx bxl-instagram bx-md'></i></a>
+                            <img src="img/sinta.jpg" alt="">
                         </div>
                         <div class="img">
-                            <i class='bx bxl-instagram bx-md'></i>
-                            <img src="img/cewek.png" alt="">
+                        <a href="https://www.instagram.com/liscaarn/"><i class='bx bxl-instagram bx-md'></i></a>
+                            <img src="img/lisca.jpg" alt="">
                         </div>
                     </div>
                 </div>
