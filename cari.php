@@ -1,3 +1,5 @@
+<?php         include "koneksi.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,34 +55,41 @@
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
     </nav><br>
     <div class="">
+        <table border="4">
+            <tr>
+                <td>No</td>
+                <td>Judul</td>
+                <td>Jenis Wisata</td>
+                <td>Gambar</td>
+                    </tr>   
+                    
         <?php
-
-        include "koneksi.php";
-        if (isset($_POST['cari'])) {
-            $cari=trim($_POST['cari']);
-            $result = mysqli_query($conn, "SELECT judul, gambar FROM objek_wisata WHERE judul LIKE '%".$cari."%' ORDER BY judul ASC") or die (mysqli_error($conn));
-
-        }else {
-            $result = mysqli_query($conn, "SELECT judul, gambar FROM objek_wisata ORDER BY judul ASC") or die (mysqli_error($conn));
+        if (isset($_POST['cari']) && $_POST['cari'] != "") {
+            $keyword = $_POST['cari'];
+            $query = "SELECT*FROM objek_wisata
+            WHERE judul LIKE '%$keyword%'";
+            $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+        } else {
+            $query = "SELECT * FROM objek_wisata";
+            $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
         }
 
-
-        $hasil=mysqli_query($conn,$result);
-        $no=0;
-        while ($data = mysqli_fetch_array($hasil)) {
-            $no++;
+        $no=1;
+        while ($data = mysqli_fetch_array($result)) {
+               
             ?>
-            <tbody>
             <tr>
-                <td><?php echo $no;?></td>
-                <td><?php echo $data["judul"]; ?></td>
-                <td><?php echo $data["gambar"];   ?></td>
+                <td><?php echo $no++?></td>
+                <td><?php echo $data["judul"];?></td>
+                <td><?php echo $data["jenis_pariwisata"]?></td>
+                <td><img src="img/<?php echo $data['gambar']; ?>" width="100" height="100">
+                </td>
+                
             </tr>
-            </tbody>
             <?php
         }
         ?>
-    ?>
+            </table>
 	</div>
 <br><br><br>
     <footer>
