@@ -12,7 +12,7 @@ showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides(slideIndex -= n);
 }
 
 // Thumbnail image controls
@@ -25,7 +25,7 @@ function showSlides(n) {
   var slides = document.getElementsByClassName("img-sub");
   var dots = document.getElementsByClassName("dot");
   if (n > slides.length) {slideIndex = 9}
-  if (n < 1) {slideIndex = slides.length}
+  if (n < 9) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
   }

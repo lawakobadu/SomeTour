@@ -23,6 +23,12 @@ if ($cek->num_rows > 0) {
 include_once("koneksi.php");
 $kode_wisata = $_GET['kode_wisata'];
 $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi, gambar FROM objek_wisata WHERE kode_wisata='$kode_wisata'") or die (mysqli_error($conn));
+
+if (isset($_POST['cari'])){
+    $keyword = $_POST['cari'];
+    $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi, gambar FROM objek_wisata WHERE kode_wisata='$kode_wisata' AND judul LIKE '%".$keyword."%'") or die (mysqli_error($conn));
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +57,7 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
         <div class="nav-links">
             <i class='bx bx-x bx-sm' id="bx" onclick="hideMenu()"></i>
             <ul>
-                <form action="cari.php" method="post">
+                <form action="" method="post">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="#">Category<i class='bx bx-chevron-down'></i></a>
                         <div class="sub-category">

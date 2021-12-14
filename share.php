@@ -64,7 +64,7 @@
 				<input type="file" name="gambar_exp" required="required">
 				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
 			</div>			
-			<input type="submit" name="" value="Upload" class="btn btn-primary">
+			<input type="submit" name="submit" value="Upload" class="btn btn-primary">
 		</form>
 	</div>
 <br><br><br>

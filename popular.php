@@ -1,6 +1,6 @@
 <?php
 include_once("koneksi.php");
-$result = mysqli_query($conn, "SELECT judul, deskripsi, gambar, kode_wisata FROM objek_wisata WHERE kode_wisata='1' OR kode_wisata='19' OR kode_wisata='37'") or die (mysqli_error($conn));
+$result = mysqli_query($conn, "SELECT judul, jenis_pariwisata, deskripsi, gambar, kode_wisata FROM objek_wisata WHERE kode_wisata='1' OR kode_wisata='19' OR kode_wisata='37'") or die (mysqli_error($conn));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +61,7 @@ $result = mysqli_query($conn, "SELECT judul, deskripsi, gambar, kode_wisata FROM
      while($data = mysqli_fetch_array($result)) {
      
      $judul = $data['judul'];
+     $jp = $data['jenis_pariwisata'];
      $gambar = $data['gambar'];
      $deskripsi = $data['deskripsi'];
      $id = $data['kode_wisata'];
@@ -68,7 +69,7 @@ $result = mysqli_query($conn, "SELECT judul, deskripsi, gambar, kode_wisata FROM
      echo "<h1 style='font-size: 42px; margin-left: 2%;'>".$judul."</h1>";
      echo "<div class='popular'>";
      echo "<img src='img/popular/".$gambar.".png' class='img-category'>";
-     echo "<a href='detailalam.php?kode_wisata=".$id."'><p>Baca Selengkapnya</p></a>";
+     echo "<a href='detail".$jp.".php?kode_wisata=".$id."' style='text-decoration: none;'><p>Baca Selengkapnya</p></a>";
      echo "</div>";
      echo "<hr>";
      }
