@@ -7,11 +7,26 @@ if(!isset($_SESSION['email'])) {
 	echo "<script>location='../index.php?p=login';</script>";
 }
  ?>
+ <head>
+ 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+
+ 		<link rel="shortcut icon" href="https://images.pexels.com/photos/1236701/pexels-photo-1236701.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="../assets/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ </head>
 <center>
-	<h2>Data EVENT</h2>
-	<a href="../page/logout.php">LOGOUT</a> ||
-	<a href="input.php">INPUT DATA</a>
-	<table border="5">
+	<h2>Data Pariwisata</h2>
+	<a class="btn blue lighten-1 white-text" href="../page/logout.php">LOGOUT</a>
+	<a class="btn blue lighten-1 white-text" href="input.php">INPUT DATA</a>
+	<br>  </br>
+	<div style="padding : 10px; margin-left: 100px; margin-right:100px;">
+	<table border="1" class="responsive-table striped highlight" >
 		<tr>
 			<td>No</td>
             <td>Kode Wisata</td>

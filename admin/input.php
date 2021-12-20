@@ -97,7 +97,7 @@
 
 
 
-                    </div>
+         </div>
 <br><center><input class= "btn blue lightern-1" type="submit" name="submit" value="SIMPAN" ></center>
 </form>
 
