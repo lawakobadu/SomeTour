@@ -61,7 +61,7 @@ $result = mysqli_query($conn, "SELECT judul, jenis_pariwisata, deskripsi, gambar
      while($data = mysqli_fetch_array($result)) {
      
      $judul = $data['judul'];
-     $jp = $data['jenis_pariwisata'];
+     $jp = trim($data['jenis_pariwisata']);
      $gambar = $data['gambar'];
      $deskripsi = $data['deskripsi'];
      $id = $data['kode_wisata'];

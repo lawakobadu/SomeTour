@@ -23,6 +23,12 @@ if ($cek->num_rows > 0) {
 include_once("koneksi.php");
 $kode_wisata = $_GET['kode_wisata'];
 $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi, gambar FROM objek_wisata WHERE kode_wisata='$kode_wisata'") or die (mysqli_error($conn));
+
+if (isset($_POST['cari'])){
+    $keyword = $_POST['cari'];
+    $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi, gambar FROM objek_wisata WHERE kode_wisata='$kode_wisata' AND judul LIKE '%".$keyword."%'") or die (mysqli_error($conn));
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +101,7 @@ $result = mysqli_query($conn, "SELECT judul, alamat, jam_operasional, deskripsi,
         echo "<p>Deskripsi : <br>".$deskripsi."</p><br>";
         echo "</div>";
         echo "</div>";
-        echo "<img src='img/maritim/".$gambar.".png' class='img-category'>";
+        echo "<img src='img/".$gambar."' class='img-category'>";
         echo "</div>";
 }
 ?>
