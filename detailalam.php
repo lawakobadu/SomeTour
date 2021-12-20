@@ -101,7 +101,7 @@ if (isset($_POST['cari'])){
         echo "<p>Deskripsi : <br>".$deskripsi."</p><br>";
         echo "</div>";
         echo "</div>";
-        echo "<img src='img/alam/".$gambar.".png' class='img-category'>";
+        echo "<img src='img/".$gambar."' class='img-category'>";
         echo "</div>";
         }
     ?>
