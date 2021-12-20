@@ -48,7 +48,7 @@ $r=mysqli_fetch_array($sql);
       </tr>
       <tr>
        <td>Masukkan Deskripsi</td>
-       <td><textarea class="textarea" id="" name="deskripsi" ><?php echo $r['deskripsi']; ?></textarea></td>
+       <td><textarea class="ckeditor" id="" name="deskripsi" ><?php echo $r['deskripsi']; ?></textarea></td>
    </tr>
    <tr>
       <td>Masukkan Gambar</td>
@@ -80,7 +80,7 @@ $r=mysqli_fetch_array($sql);
 if(isset($_POST['update'])){
 $gambar =$_FILES['gambar']['name'];
 $source =$_FILES['gambar']['tmp_name'];
-$folder ='./gambar/';
+$folder ='../img/';
       
      if($gambar !=""){
             move_uploaded_file($source, $folder.$gambar);

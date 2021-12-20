@@ -66,7 +66,7 @@ $result = mysqli_query($conn, "SELECT kode_wisata, judul, gambar, jenis_pariwisa
         echo "<tr>";
         echo "<td>
                 <a href='detailsejarah.php?kode_wisata=".$id."'><p class='p-sub'>".$judul."</p>
-                <img src='img/sejarah/".$gambar.".jpg' class='img-category'></a>
+                <img src='img/".$gambar."' class='img-category'></a>
             </td>"; 
         echo "</div>";   
     }
