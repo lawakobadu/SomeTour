@@ -1,39 +1,52 @@
 <!DOCTYPE html>
- <html>
- <head>
-  <title>Welcome User</title>
+<html>
+<head>
+  <title>User</title>
+  <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+ 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+
+ 		<link rel="shortcut icon" href="https://images.pexels.com/photos/1236701/pexels-photo-1236701.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="../assets/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 
-    <?php 
-    include "koneksi.php";
-    session_start();
-    if(!isset($_SESSION['email'])) {
-      echo "<script>Alert('Anda harus login')</script>";
-      echo "<script>location='../page/login.php';</script>";
-  }
-    $sql=mysqli_query($koneksi,"SELECT * FROM objek_wisata WHERE kode_wisata='".$_GET['kode_wisata']."' ");
-    $r=mysqli_fetch_array($sql);
-  ?>
 
-  <center>
-    <a href="index.php">Kembali</a> 
-    <h1>EDIT DATA</h1>
-    
-    <form action="" method="POST" enctype="multipart/form-data">
-       <table border="5">
-            <td>Masukkan Kode Wisata</td>
-            <td><input type="text" name="kode_wisata" value="<?php echo $r['kode_wisata'] ;?>" readonly="" required></td>
-        </tr>
-        <tr>
-            <td>Masukkan Judul</td>
-            <td><input type="text" name="judul" required="" value="<?php echo $r['judul'] ;?>" ></td>
-        </tr>
-        <tr>
-            <td>Jenis Wisata</td>
-            <td>
+<?php
+include "koneksi.php";
+session_start();
+if(!isset($_SESSION['email'])) {
+  echo "<script>Alert('Anda harus login')</script>";
+  echo "<script>location='../page/login.php';</script>";
+}
+$sql=mysqli_query($koneksi,"SELECT * FROM objek_wisata WHERE kode_wisata='".$_GET['kode_wisata']."' ");
+$r=mysqli_fetch_array($sql);
+?>
+         <h2>EDIT DATA</h2>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+        <div class="row" style="padding : 10px; margin-left: 100px; margin-right:100px;">
+
+          <div class="col s12 m6">
+            <label>Kode Wisata</label>
+            <input type="text" name="kode_wisata" value="<?php echo $r['kode_wisata']; ?>" required>
+            </div>
+
+            <div class="col s12 m6">
+            <label>Masukkan Judul</label>
+            <input type="text" name="judul" required="" value="<?php echo $r['judul']; ?> ">
+            </div>
+
+            <div class="col s12 m6">
+            <label>Jenis Wisata</label>
                 <select name="jenis_pariwisata">
-                    <option value="<?php echo $r['jenis_pariwisata'] ;?>" ><?php echo $r['jenis_pariwisata'] ;?></option>
+                    <option value="<?php echo $r['jenis_pariwisata']; ?> "><?php echo $r['jenis_pariwisata']; ?></option>
                     <?php 
                     $jenis= mysqli_query($koneksi, "SELECT * FROM jenis");
                     while ($rj = mysqli_fetch_array($jenis)) {
@@ -41,31 +54,37 @@
                       <option value="<?php echo $rj['jenis_pariwisata'] ?>"><?php echo $rj['jenis_pariwisata']; ?></option>
                   <?php } ?>
               </select>
-          </td>
+              </div>
 
-      </tr>
-      <tr>
-       <td>Masukkan Deskripsi</td>
-       <td><textarea class="ckeditor" id="ckeditor" name="deskripsi" value="<?php echo $r['deskripsi'] ;?>"><?php echo $r['deskripsi'] ;?></textarea></td>
-   </tr>
-   <tr>
-      <td>Masukkan Gambar</td>
-      <td><input type="file" name="gambar" ></td>
-  </tr>
-<tr>
-    <td>Alamat</td>
-    <td><input type="text" name="alamat" required="" value="<?php echo $r['deskripsi'] ;?>" ></td>
-</tr>
-<tr>
-    <td>Jam Operasional</td>
-    <td><input type="text" name="jam_operasional" required="" value="<?php echo $r['deskripsi'] ;?>"> </td>
-</tr>
+              
+              
+              <div class="col s12 m6">
+              <label>Masukkan Gambar</label>
+              <br> <br>
+              <label><input type="file" name="gambar" ><?php echo $r['gambar']; ?></label>
+              </div>
+              
+              <div class="col s12 m6">
+              <label>Alamat</label>
+              <input type="text" name="alamat" required="" value="<?php echo $r['alamat']; ?>">
+                    </div>
+
+              <div class="col s12 m6">
+              <label>Jam Operasional</label>
+              <input type="text" name="jam_operasional" required="" value="<?php echo $r['jam_operasional']; ?>">
+              </div>
+
+              <div class="col s12 m12">
+              <label>Masukkan Deskripsi</label>
+              <textarea class="ckeditor" id="" name="deskripsi" ><?php echo $r['deskripsi']; ?></textarea>
+              </div>
+              <br>
+              <center> <br> <button class="btn blue lighten-1" type="submit" name="submit" value="submit">Update</button></center>
+
+              </div>
+         </form>
 
 
-</table>
-<br><input type="submit" name="submit" value="SIMPAN" >
-</form>
-</center>
 
 <?php
 include "koneksi.php";

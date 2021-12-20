@@ -68,7 +68,7 @@ $result = mysqli_query($conn, "SELECT judul, jenis_pariwisata, deskripsi, gambar
 
      echo "<h1 style='font-size: 42px; margin-left: 2%;'>".$judul."</h1>";
      echo "<div class='popular'>";
-     echo "<img src='img/popular/".$gambar.".png' class='img-category'>";
+     echo "<img src='img/popular/".$gambar."' class='img-category'>";
      echo "<a href='detail".$jp.".php?kode_wisata=".$id."' style='text-decoration: none;'><p>Baca Selengkapnya</p></a>";
      echo "</div>";
      echo "<hr>";

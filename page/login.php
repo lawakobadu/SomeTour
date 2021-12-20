@@ -27,20 +27,12 @@
 				<div class="z-depth-1 blue-grey lighten-5 row" style="display:inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
        
-	<h4 class="blue-text">REGISTRASI</h4>
+	<h4 class="blue-text">LOGIN</h4>
 	<h6 class="blue-text">SomeTour</h6>
 
 	<form class="col s12" method="POST">
 		<div class="row">
 			<div class="col s12">
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="input-field col s12">
-      <label for="email" >Enter Your Name</label>
-			<input type='text' name='nama' id='nama'/>
-			
 			</div>
 		</div>
 
@@ -57,16 +49,15 @@
 			<input type='password' name='password' id='password'/>
 			<label for="password" >Enter Your Password</label>
 			</div>
-
 			<label style="float: right;"></label>
-		<a class="blue-text" href="login.php"><b>Sudah Punya Akun? Login</b></a>
+		<a class="blue-text" href="register.php"><b>Registrasi Disini!</b></a>
 			</label>
 		</div>
 
 		<br />
 		<center>
 			<div class="row">
-				<button type="submit" name="register" class="col s12 btn btn-large waves-effect blue">Register</button>
+				<button type="submit" name="login" class="col s12 btn btn-large waves-effect blue">Login</button>
 			</div>
 		</center>
 				</form>
@@ -81,24 +72,37 @@
 </body>
 </html>
 
-
 <?php 
-include "koneksi.php";
-  if(isset($_POST['register'])){
-    $password=md5($_POST['password']);
-    $level='user';
-	$email = $_POST['email'];
-	$nama = $_POST['nama'];
+include 'koneksi.php';
 
-    $sql=mysqli_query($koneksi,"INSERT INTO user VALUES (NULL,'".$nama."','".$email."','".$password."','".$level."')");
-    if($sql){
-        echo "<script>alert('Anda berhasil Mendaftar')</script>";
-        echo "<script>location='login.php';</script>";
-     
-          
-     }
-     else{
-         echo "<script>alert('Gagal')</script>";
-     }    
+if(isset($_POST['login'])) {
+  $email=(htmlentities($_POST['email']));
+  $password=(htmlentities(md5($_POST['password'])));
+  $query=mysqli_query($koneksi, "SELECT * FROM user WHERE email='$email' AND password='$password'");
+  $baris=mysqli_fetch_array($query);
+  $cek=mysqli_num_rows($query);
+  $id=$baris['id_user'];
+  if($cek>0) {
+    if ($baris['level']=="admin") {
+      session_start();
+      $_SESSION['email']=$email;
+      $_SESSION['user']=$baris;
+      echo "<script>alert('Anda berhasil login sebagai Admin')</script>";
+      echo "<script>location='../admin/index.php';</script>";
+    }
+    elseif ($baris['level']=="user") {
+      session_start();
+      $_SESSION['email']=$email;
+      $_SESSION['user']=$baris;
+      echo "<script>alert('Anda berhasil login sebagai User')</script>";
+      echo "<script>location='../user/index.php';</script>";
+
+    }
+
   }
+  else{
+    echo "<script>alert('Username dan Password Salah')</script>";
+  }
+} 
+
  ?>
