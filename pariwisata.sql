@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Des 2021 pada 13.24
--- Versi server: 10.4.21-MariaDB
--- Versi PHP: 7.4.25
+-- Generation Time: Dec 20, 2021 at 06:53 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,20 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `experience`
+-- Table structure for table `experience`
 --
 
 CREATE TABLE `experience` (
   `no_exp` int(5) NOT NULL,
   `experience` text NOT NULL,
-  `gambar_exp` varchar(255) NOT NULL,
-  `kode_wisata` int(11) NOT NULL
+  `gambar_exp` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jenis`
+-- Table structure for table `jenis`
 --
 
 CREATE TABLE `jenis` (
@@ -45,7 +44,7 @@ CREATE TABLE `jenis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `jenis`
+-- Dumping data for table `jenis`
 --
 
 INSERT INTO `jenis` (`jenis_pariwisata`) VALUES
@@ -56,7 +55,7 @@ INSERT INTO `jenis` (`jenis_pariwisata`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `objek_wisata`
+-- Table structure for table `objek_wisata`
 --
 
 CREATE TABLE `objek_wisata` (
@@ -72,7 +71,7 @@ CREATE TABLE `objek_wisata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `objek_wisata`
+-- Dumping data for table `objek_wisata`
 --
 
 INSERT INTO `objek_wisata` (`kode_wisata`, `id_user`, `judul`, `jenis_pariwisata`, `deskripsi`, `gambar`, `alamat`, `jam_operasional`, `status`) VALUES
@@ -133,19 +132,26 @@ INSERT INTO `objek_wisata` (`kode_wisata`, `id_user`, `judul`, `jenis_pariwisata
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rating`
+-- Table structure for table `rating`
 --
 
 CREATE TABLE `rating` (
-  `no_rating` int(5) NOT NULL,
-  `rating` varchar(100) NOT NULL,
-  `kode_wisata` int(11) NOT NULL
+  `ipuser` varchar(35) NOT NULL,
+  `rate` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`ipuser`, `rate`) VALUES
+('837', 4),
+('837ec5754f503cfaaee0929fd48974e7', 3);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `saran`
+-- Table structure for table `saran`
 --
 
 CREATE TABLE `saran` (
@@ -157,7 +163,7 @@ CREATE TABLE `saran` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -169,7 +175,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `level`) VALUES
@@ -184,20 +190,19 @@ INSERT INTO `user` (`id_user`, `nama`, `email`, `password`, `level`) VALUES
 --
 
 --
--- Indeks untuk tabel `experience`
+-- Indexes for table `experience`
 --
 ALTER TABLE `experience`
-  ADD PRIMARY KEY (`no_exp`),
-  ADD KEY `kode_wisata` (`kode_wisata`);
+  ADD PRIMARY KEY (`no_exp`);
 
 --
--- Indeks untuk tabel `jenis`
+-- Indexes for table `jenis`
 --
 ALTER TABLE `jenis`
   ADD PRIMARY KEY (`jenis_pariwisata`);
 
 --
--- Indeks untuk tabel `objek_wisata`
+-- Indexes for table `objek_wisata`
 --
 ALTER TABLE `objek_wisata`
   ADD PRIMARY KEY (`kode_wisata`),
@@ -205,66 +210,53 @@ ALTER TABLE `objek_wisata`
   ADD KEY `jenis_pariwisata` (`jenis_pariwisata`);
 
 --
--- Indeks untuk tabel `rating`
+-- Indexes for table `rating`
 --
 ALTER TABLE `rating`
-  ADD PRIMARY KEY (`no_rating`),
-  ADD KEY `kode_wisata` (`kode_wisata`);
+  ADD PRIMARY KEY (`ipuser`);
 
 --
--- Indeks untuk tabel `saran`
+-- Indexes for table `saran`
 --
 ALTER TABLE `saran`
   ADD PRIMARY KEY (`no_saran`),
   ADD KEY `kode_wsata` (`kode_wisata`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `objek_wisata`
+-- AUTO_INCREMENT for table `objek_wisata`
 --
 ALTER TABLE `objek_wisata`
   MODIFY `kode_wisata` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `experience`
---
-ALTER TABLE `experience`
-  ADD CONSTRAINT `experience_ibfk_1` FOREIGN KEY (`kode_wisata`) REFERENCES `objek_wisata` (`kode_wisata`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `objek_wisata`
+-- Constraints for table `objek_wisata`
 --
 ALTER TABLE `objek_wisata`
   ADD CONSTRAINT `objek_wisata_ibfk_1` FOREIGN KEY (`jenis_pariwisata`) REFERENCES `jenis` (`jenis_pariwisata`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `objek_wisata_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `rating`
---
-ALTER TABLE `rating`
-  ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`kode_wisata`) REFERENCES `objek_wisata` (`kode_wisata`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `saran`
+-- Constraints for table `saran`
 --
 ALTER TABLE `saran`
   ADD CONSTRAINT `saran_ibfk_1` FOREIGN KEY (`kode_wisata`) REFERENCES `objek_wisata` (`kode_wisata`) ON DELETE CASCADE ON UPDATE CASCADE;
