@@ -193,7 +193,7 @@
         <div class="col-3">
             <p>Syarat dan Ketentuan</p>
             <p>|</p>
-            <p>Contact Us</p>
+            <a href="contact.php" style="text-decoration: none;"><p>Contact Us</p></a>
         </div>
     </div><br><hr>
     <div class="row-2">
