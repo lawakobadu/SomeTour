@@ -56,34 +56,40 @@ $r=mysqli_fetch_array($sql);
               </select>
               </div>
 
-              <div class="col s12 m6">
+              <div class="col s12 m12">
               <label>Masukkan Deskripsi</label>
               <textarea class="ckeditor" id="" name="deskripsi" ><?php echo $r['deskripsi']; ?></textarea>
               </div>
               
-              <div class="col s12 m6">
-              <label>Masukkan Gambar</label>
-              <label><input type="file" name="gambar" ><?php echo $r['gambar']; ?></label>
-              </div>
               
               <div class="col s12 m6">
               <label>Alamat</label>
               <input type="text" name="alamat" required="" value="<?php echo $r['alamat']; ?>">
+              </div>
+
+              <div class="col s12 m6">
               <label>Jam Operasional</label>
               <input type="text" name="jam_operasional" required="" value="<?php echo $r['jam_operasional']; ?>">
               </div>
 
-              <div class="col s12 m6">
-              <label>Opsi</label>
-                  <select name="status">
-                    <option value="<?php echo $r['status']; ?>"> <?php echo $r['status']; ?> </option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                  </select>
-                  </div>
+                <div class="col s12 m6">
+                <label>Status</label>
+                <select class="browser-default" name="status">
+                <option value="<?php echo $r['status']; ?>"> <?php echo $r['status']; ?> </option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                </select>
+            </div>
+            <br></br>
+            <div class="col s12 m6">
+              <label>Masukkan Gambar</label>
+              <br>
+              <label><input type="file" name="gambar" ><?php echo $r['gambar']; ?></label>
+              </div>
+              
 
               </div>
-              <br><input type="submit" name="update" value="UPDATE">
+              <center><br><button class="btn blue lighten-1" type="submit" name="update" value="UPDATE">Update</button></center>
          </form>
 
 
