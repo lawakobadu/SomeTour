@@ -90,15 +90,17 @@ include "koneksi.php";
 	$email = $_POST['email'];
 	$nama = $_POST['nama'];
 
-    $sql=mysqli_query($koneksi,"INSERT INTO user VALUES (NULL,'".$nama."','".$email."','".$password."','".$level."')");
-    if($sql){
-        echo "<script>alert('Anda berhasil Mendaftar')</script>";
-        echo "<script>location='login.php';</script>";
-     
-          
+	$cekemail    = mysqli_query($koneksi,"SELECT email FROM user WHERE email='$email'");
+    if($cekemail > 0) {
+		echo "<script>alert('Email Telah Digunakan!')</script>";
+		echo "<script>location='register.php';</script>";
+        
      }
      else{
-         echo "<script>alert('Gagal')</script>";
+        
+		 $sql=mysqli_query($koneksi,"INSERT INTO user VALUES (NULL,'".$nama."','".$email."','".$password."','".$level."')");
+		 echo "<script>alert('Anda berhasil Mendaftar')</script>";
+		 echo "<script>location='login.php';</script>";
      }    
   }
  ?>

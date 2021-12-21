@@ -3,6 +3,17 @@
 <head>
   <title>Admin</title>
   <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+ 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+
+ 		<link rel="shortcut icon" href="https://images.pexels.com/photos/1236701/pexels-photo-1236701.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="../assets/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 
@@ -45,34 +56,40 @@ $r=mysqli_fetch_array($sql);
               </select>
               </div>
 
-              <div class="col s12 m6">
+              <div class="col s12 m12">
               <label>Masukkan Deskripsi</label>
               <textarea class="ckeditor" id="" name="deskripsi" ><?php echo $r['deskripsi']; ?></textarea>
               </div>
               
-              <div class="col s12 m6">
-              <label>Masukkan Gambar</label>
-              <label><input type="file" name="gambar" ><?php echo $r['gambar']; ?></label>
-              </div>
               
               <div class="col s12 m6">
               <label>Alamat</label>
               <input type="text" name="alamat" required="" value="<?php echo $r['alamat']; ?>">
+              </div>
+
+              <div class="col s12 m6">
               <label>Jam Operasional</label>
               <input type="text" name="jam_operasional" required="" value="<?php echo $r['jam_operasional']; ?>">
               </div>
 
-              <div class="col s12 m6">
-              <label>Opsi</label>
-                  <select name="status">
-                    <option value="<?php echo $r['status']; ?>"> <?php echo $r['status']; ?> </option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                  </select>
-                  </div>
+                <div class="col s12 m6">
+                <label>Status</label>
+                <select class="browser-default" name="status">
+                <option value="<?php echo $r['status']; ?>"> <?php echo $r['status']; ?> </option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                </select>
+            </div>
+            <br></br>
+            <div class="col s12 m6">
+              <label>Masukkan Gambar</label>
+              <br>
+              <label><input type="file" name="gambar" ><?php echo $r['gambar']; ?></label>
+              </div>
+              
 
               </div>
-              <br><input type="submit" name="update" value="UPDATE">
+              <center><br><button class="btn blue lighten-1" type="submit" name="update" value="UPDATE">Update</button></center>
          </form>
 
 

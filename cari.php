@@ -12,6 +12,7 @@
 
     <!-- Icon -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,14 +55,7 @@
         </div>
         <i class='bx bx-menu bx-sm' id="bx" onclick="showMenu()"></i>
     </nav><br>
-    <div class="">
-        <table border="4">
-            <tr>
-                <td>No</td>
-                <td>Judul</td>
-                <td>Jenis Wisata</td>
-                <td>Gambar</td>
-                    </tr>   
+    <div class="content-popular" style="margin-left: 50px;margin-right: 50px;"> 
                     
         <?php
         if (isset($_POST['cari']) && $_POST['cari'] != "") {
@@ -76,20 +70,20 @@
 
         $no=1;
         while ($data = mysqli_fetch_array($result)) {
-               
+            $gambar = $data['gambar'];
+            $judul = $data['judul'];
+            $id = $data['kode_wisata'];
             ?>
-            <tr>
-                <td><?php echo $no++?></td>
-                <td><?php echo $data["judul"];?></td>
-                <td><?php echo $data["jenis_pariwisata"]?></td>
-                <td><img src="img/<?php echo $data['gambar']; ?>" width="100" height="100">
-                </td>
-                
-            </tr>
+            <div class="row">
+             <?php echo "<a href='detailalam.php?kode_wisata=".$id."'><p class='p-sub'>".$judul."</p>" ?>
+
+             <img src="./img/<?php echo $data['gambar']; ?>"  width="300" height="180">
+  </div>
+
             <?php
+
         }
         ?>
-            </table>
 	</div>
 <br><br><br>
     <footer>
